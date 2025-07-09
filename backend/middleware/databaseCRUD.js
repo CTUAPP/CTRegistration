@@ -22,7 +22,7 @@ exports.createAdmission = async (req, res, next) => {
     try {
         // Fetch the latest UID from admission2024 table
         const [rows] = await pool.query('SELECT MAX(CAST(SUBSTRING(UID, 4) AS UNSIGNED)) AS max_uid FROM admission2024');
-        let maxUid = rows[0].max_uid || 2500000; // Starting UID if table is empty
+        let maxUid = Math.max(rows[0].max_uid || 0, 2500000); // Starting UID if table is empty
         console.log(rows[0].max_uid, maxUid);
         
         // Generate the next UID

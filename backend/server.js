@@ -43,12 +43,12 @@ app.get('/ProgramData/:department',getProgramByDepartment);
 
 const PORT = 1000;
 // insertData();
-app.listen(PORT, process.env.IP,() => {
-    console.log(`Server is working on ${process.env.IP}:${PORT}`);
-});
-
-
-
-// app.listen(PORT,() => {
-//     console.log(`Server is working on http://localhost:${PORT}`);
+// app.listen(PORT, process.env.IP,() => {
+//     console.log(`Server is working on ${process.env.IP}:${PORT}`);
 // });
+
+
+
+app.listen(PORT,() => {
+    console.log(`Server is working on http://localhost:${PORT}`);
+});
